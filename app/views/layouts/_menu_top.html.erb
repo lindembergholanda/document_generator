@@ -1,0 +1,32 @@
+<!-- Main Header -->
+<header class="main-header">
+
+  <!-- Logo -->
+  <%= link_to root_path, class: 'logo' do %>
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><i class="fa fa-file"></i></span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><p><span><%= sigla_sistema %></span></p></span>
+  <% end %>
+
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+    </a>
+    <!-- Navbar Right Menu -->
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <%= "#{current_user.email}#{session[:tipo_user].blank? ? '' : "(#{session[:tipo_user].upcase})"}" %><b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%#= edit_user_registration_path %>">Dados Pessoais</a></li>
+            <li class="divider"></li>
+            <li><%= link_to(' Sair', destroy_user_session_path, :method => :delete, :class => 'fa fa-user') %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- Left side column. contains the logo and sidebar -->

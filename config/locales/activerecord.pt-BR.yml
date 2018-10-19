@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+      company: 'Empresa'
+      company_address: 'Endereço'
+      company_contact: 'Contato'
+    attributes:
+      user:
+        email: E-mail
+      company:
+        name: 'Nome'
+        trade_name: 'Nome Fantasia'
+        cnpj: 'CNPJ'

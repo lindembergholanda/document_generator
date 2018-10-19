@@ -1,0 +1,18 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-menu">
+        <li class="treeview ">
+          <li class="<%= current_class?("#{companies_path}") %>">
+            <%= link_to companies_path do %>
+              <i class="fa fa-institution"></i><span>Company</span>
+            <% end %>
+          </li>
+        </li>
+      </ul>
+    </div>
+  </section>
+</aside>

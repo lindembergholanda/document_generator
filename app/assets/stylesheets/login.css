@@ -1,0 +1,59 @@
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body-login {
+  padding: 2rem;
+}
+
+.card-body-login {
+    background-color: #323c48
+}
+
+.form-control-login {
+    background-color: #3b4654;
+    border-radius: 2px;
+    border: 1px solid #4a5869;
+    box-shadow: none;
+    height: 38px;
+    color: #ffffff !important;
+    font-size: 14px;
+}
+
+.form-control-login:focus { 
+    background-color: #3b4654;
+    border: 1px solid #4b678a;
+    box-shadow: none;
+}
+
+.text-muted {
+    color: #98a4b9 !important;
+}
+
+.btn-login {
+    background-color: #038b9a;
+    border: 1px solid #04a2b3;
+}
+
+.btn-login:hover {
+    background-color: #046d79;
+    border: 1px solid #046d79;
+}
+
+.btn-login:active {
+    background-color: #038b9a !important;
+    border: 1px solid #04a2b3 !important;
+}
+
+.login-page {
+    margin: 7.5% auto;
+    position: relative;
+}

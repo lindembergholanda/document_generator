@@ -1,0 +1,11 @@
+<div class="message">
+  <div class="alert alert-success">
+    <b><%= current_user.email %></b>, <%= t('system.messages.welcome') %> <span class="nome_sistema"><%= "#{nome_sistema}" %></span>.<br/>
+    <b><%= t('system.messages.last_sign') %><%= current_user.last_sign_in_at.try(:strftime, '%d/%m/%Y às %H:%M') %>.</b>
+  </div>
+
+  <div class="alert alert-info">
+    Navegue no sistema utilizando o menu ao lado.<br/>
+    Nunca esqueça de sair do sistema quando não estiver mais utilizando.
+  </div>
+</div>

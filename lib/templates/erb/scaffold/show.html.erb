@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title"><%%= t('.title', default: @<%= singular_table_name %>.class.model_name.human ) %></h3>
+        <h6 class="card-subtitle"></h6>
+      </div>
+      <div class="card-body">
+        <table class="table table-condensed">
+          <thead>
+          <tr>
+            <% attributes.each do |attribute| -%>
+                <th><%%= <%= singular_table_name.capitalize %>.human_attribute_name :<%= attribute.name %> %></th>
+            <% end -%>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <% attributes.each do |attribute| -%>
+                <td style="min-width: 90px; word-break: break-all;"><%%= @<%= singular_table_name %>.<%= attribute.name %> %></th>
+            <% end -%>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%%= link_to('Listar', <%= plural_table_name %>_path, class: 'btn btn-primary') %>
+<%%= link_to 'Editar', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-success' %>
