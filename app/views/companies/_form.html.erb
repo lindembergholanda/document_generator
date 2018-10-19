@@ -1,0 +1,154 @@
+<%= nested_form_for(@company) do |f| %>
+  <%= error_messages_for @company %>
+  <div class="form-group row">
+    <%= f.label :name, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-10 col-md-10">
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Company name', maxlength: 200  %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :trade_name, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-10 col-md-10">
+      <%= f.text_field :trade_name, class: 'form-control', placeholder: 'Company trade name', maxlength: 100  %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :cnpj, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-10 col-md-10">
+      <%= f.text_field :cnpj, class: 'form-control cnpj', placeholder: 'CNPJ', maxlength: 18  %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10 ml-sm-auto">
+      <%= link_to_index companies_path, class: 'btn btn-primary' %>
+      <%= f.submit nil, class: 'btn btn-success', data: { disable_with: disable_with } %>
+    </div>
+  </div>
+
+  </br></br>
+  <div class="form-group">
+    <div class="col-xs-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><%= t('.title', default: CompanyAddress.model_name.human) %></h5>
+        </div>
+        <div class="card-body">
+          <%= f.fields_for(:company_address) do |address| %>
+              <table class="table table-bordered">
+                <tr>
+                  <td>
+                    <% if address.object.new_record? %>
+                      <div class="row">
+                        <div class="col-sm-2 col-md-2">
+                          <%= address.label :zip_code, class: 'font-weight-bold' %>
+                          <%= address.text_field :zip_code, class: 'form-control zip-code', placeholder: 'Zip Code', maxlength: 14 %>
+                        </div>
+
+                        <div class="col-sm-4 col-md-6">
+                          <%= address.label :street_address, class: 'font-weight-bold' %>
+                          <%= address.text_field :street_address, class: 'form-control', placeholder: 'Street Address', maxlength: 100 %>
+                        </div>
+
+                        <div class="col-sm-3 col-md-1">
+                          <%= address.label :number, class: 'font-weight-bold' %>
+                          <%= address.text_field :number, class: 'form-control', placeholder: 'Number', maxlength: 100 %>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                          <%= address.label :city_id, class: 'font-weight-bold' %>
+                          <%= address.collection_select :city_id, @cities, :id, :nome, {selected: address.object.city_id, prompt: '-- selecione --' }, {class: "form-control select2"} %>
+                        </div>
+                      </div>
+                    <% else %>
+                      <div class="row">
+                        <div class="col-sm-2 col-md-2">
+                          <%= address.label :zip_code, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= address.object.zip_code %></p>
+                        </div>
+
+                        <div class="col-sm-4 col-md-6">
+                          <%= address.label :street_address, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= address.object.street_address %></p>
+                        </div>
+
+                        <div class="col-sm-3 col-md-1">
+                          <%= address.label :number, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= address.object.number %></p>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                          <%= address.label :city_id, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= "#{address.object.city.name}/#{address.object.city.state.trade_name}" rescue '' %></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  </td>
+                  <td class="form-group">
+                    <%= address.link_to_remove "<i class='fa fa-trash fa-lg'></i>".html_safe %>
+                  </td>
+                </tr>
+              </table>
+          <% end %>
+          <%= f.link_to_add "<i class='fa fa-plus fa-lg'></i>".html_safe, :company_address %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </br></br>
+  <div class="form-group">
+    <div class="col-xs-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><%= t('.title', default: CompanyContact.model_name.human) %></h5>
+        </div>
+        <div class="card-body">
+          <%= f.fields_for(:company_contact) do |contact| %>
+              <table class="table table-bordered">
+                <tr>
+                  <td>
+                    <% if contact.object.new_record? %>
+                      <div class="row">
+                        <div class="col-sm-2 col-md-4">
+                          <%= contact.label :name, class: 'font-weight-bold' %>
+                          <%= contact.text_field :name, class: 'form-control', placeholder: 'Name', maxlength: 14 %>
+                        </div>
+
+                        <div class="col-sm-4 col-md-4">
+                          <%= contact.label :occupation, class: 'font-weight-bold' %>
+                          <%= contact.text_field :occupation, class: 'form-control', placeholder: 'Occupation', maxlength: 100 %>
+                        </div>
+
+                        <div class="col-sm-3 col-md-4">
+                          <%= contact.label :email, class: 'font-weight-bold' %>
+                          <%= contact.text_field :email, class: 'form-control', placeholder: 'E-mail', maxlength: 100 %>
+                        </div>
+                      </div>
+                    <% else %>
+                      <div class="row">
+                        <div class="col-sm-2 col-md-4">
+                          <%= contact.label :name, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= contact.object.name %></p>
+                        </div>
+
+                        <div class="col-sm-4 col-md-4">
+                          <%= contact.label :occupation, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= contact.object.occupation %></p>
+                        </div>
+
+                        <div class="col-sm-3 col-md-4">
+                          <%= contact.label :email, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= contact.object.email %></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  </td>
+                  <td class="form-group">
+                    <%= contact.link_to_remove "<i class='fa fa-trash fa-lg'></i>".html_safe %>
+                  </td>
+                </tr>
+              </table>
+          <% end %>
+          <%= f.link_to_add "<i class='fa fa-plus fa-lg'></i>".html_safe, :company_contact %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

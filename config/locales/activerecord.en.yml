@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      user: User
+      company: 'Company'
+      company_address: 'Address'
+      company_contact: 'Contact'
+    attributes:
+      user:
+        email: E-mail
+      company:
+        name: 'Name'
+        trade_name: 'Trade Name'
+        cnpj: 'CNPJ'
+      
