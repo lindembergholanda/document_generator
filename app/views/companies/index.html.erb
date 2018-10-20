@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-sm-6"><%= content_tag :h3, t('.title', default: Company.model_name.human.pluralize.upcase), style: 'margin-top: 0;' %></div>
-  <div class="col-sm-6 pull-right" style="text-align: right;"><%= link_to "Novo Registro", new_company_path, class: 'btn btn-primary btn-sm' %></div>
+  <div class="col-sm-6 pull-right" style="text-align: right;"><%= link_to t('helpers.links.new'), new_company_path, class: 'btn btn-primary btn-sm' %></div>
 </div>
 
 
 <table class="table table-striped table-bordered">
   <thead style="font-size: smaller;">
     <tr>
-      <th rowspan="2"><%= Company.human_attribute_name :name %></th>
-      <th rowspan="2"><%= Company.human_attribute_name :trade_name %></th>
-      <th rowspan="2"><%= Company.human_attribute_name :cnpj %></th>
-      <th rowspan="2"><%= t('helpers.links.actions') %></th>
+      <th><%= Company.human_attribute_name :name %></th>
+      <th><%= Company.human_attribute_name :trade_name %></th>
+      <th><%= Company.human_attribute_name :cnpj %></th>
+      <th style="width: 15%;"><%= t('helpers.links.actions') %></th>
     </tr>
   </thead>
   <tbody>

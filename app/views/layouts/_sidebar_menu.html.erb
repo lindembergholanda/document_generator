@@ -8,7 +8,13 @@
         <li class="treeview ">
           <li class="<%= current_class?("#{companies_path}") %>">
             <%= link_to companies_path do %>
-              <i class="fa fa-institution"></i><span>Company</span>
+              <i class="fa fa-institution"></i><span><%= Company.model_name.human %></span>
+            <% end %>
+          </li>
+
+          <li class="<%= current_class?("#{document_types_path}") %>">
+            <%= link_to document_types_path do %>
+              <i class="fa fa-list"></i><span><%= DocumentType.model_name.human %></span>
             <% end %>
           </li>
         </li>

@@ -3,19 +3,19 @@
   <div class="form-group row">
     <%= f.label :name, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
     <div class="col-xs-12 col-sm-10 col-md-10">
-      <%= f.text_field :name, class: 'form-control', placeholder: 'Company name', maxlength: 200  %>
+      <%= f.text_field :name, class: 'form-control', placeholder: (Company.human_attribute_name :name), maxlength: 200  %>
     </div>
   </div>
   <div class="form-group row">
     <%= f.label :trade_name, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
     <div class="col-xs-12 col-sm-10 col-md-10">
-      <%= f.text_field :trade_name, class: 'form-control', placeholder: 'Company trade name', maxlength: 100  %>
+      <%= f.text_field :trade_name, class: 'form-control', placeholder: (Company.human_attribute_name :trade_name), maxlength: 100  %>
     </div>
   </div>
   <div class="form-group row">
     <%= f.label :cnpj, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
     <div class="col-xs-12 col-sm-10 col-md-10">
-      <%= f.text_field :cnpj, class: 'form-control cnpj', placeholder: 'CNPJ', maxlength: 18  %>
+      <%= f.text_field :cnpj, class: 'form-control cnpj', placeholder: (Company.human_attribute_name :cnpj), maxlength: 18  %>
     </div>
   </div>
   <div class="form-group row">
@@ -41,17 +41,17 @@
                       <div class="row">
                         <div class="col-sm-2 col-md-2">
                           <%= address.label :zip_code, class: 'font-weight-bold' %>
-                          <%= address.text_field :zip_code, class: 'form-control zip-code', placeholder: 'Zip Code', maxlength: 14 %>
+                          <%= address.text_field :zip_code, class: 'form-control zip-code', placeholder: (CompanyAddress.human_attribute_name :zip_code), maxlength: 14 %>
                         </div>
 
                         <div class="col-sm-4 col-md-6">
                           <%= address.label :street_address, class: 'font-weight-bold' %>
-                          <%= address.text_field :street_address, class: 'form-control', placeholder: 'Street Address', maxlength: 100 %>
+                          <%= address.text_field :street_address, class: 'form-control', placeholder: (CompanyAddress.human_attribute_name :street_address), maxlength: 100 %>
                         </div>
 
                         <div class="col-sm-3 col-md-1">
                           <%= address.label :number, class: 'font-weight-bold' %>
-                          <%= address.text_field :number, class: 'form-control', placeholder: 'Number', maxlength: 100 %>
+                          <%= address.text_field :number, class: 'form-control', placeholder: (CompanyAddress.human_attribute_name :number), maxlength: 100 %>
                         </div>
                         <div class="col-sm-3 col-md-3">
                           <%= address.label :city_id, class: 'font-weight-bold' %>
@@ -108,17 +108,17 @@
                       <div class="row">
                         <div class="col-sm-2 col-md-4">
                           <%= contact.label :name, class: 'font-weight-bold' %>
-                          <%= contact.text_field :name, class: 'form-control', placeholder: 'Name', maxlength: 14 %>
+                          <%= contact.text_field :name, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :name), maxlength: 14 %>
                         </div>
 
                         <div class="col-sm-4 col-md-4">
                           <%= contact.label :occupation, class: 'font-weight-bold' %>
-                          <%= contact.text_field :occupation, class: 'form-control', placeholder: 'Occupation', maxlength: 100 %>
+                          <%= contact.text_field :occupation, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :occupation), maxlength: 100 %>
                         </div>
 
                         <div class="col-sm-3 col-md-4">
                           <%= contact.label :email, class: 'font-weight-bold' %>
-                          <%= contact.text_field :email, class: 'form-control', placeholder: 'E-mail', maxlength: 100 %>
+                          <%= contact.text_field :email, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :email), maxlength: 100 %>
                         </div>
                       </div>
                     <% else %>

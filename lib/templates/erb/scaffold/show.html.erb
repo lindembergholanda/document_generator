@@ -27,5 +27,5 @@
   </div>
 </div>
 
-<%%= link_to('Listar', <%= plural_table_name %>_path, class: 'btn btn-primary') %>
-<%%= link_to 'Editar', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-success' %>
+<%%= link_to t('helpers.links.list'), <%= plural_table_name %>_path, class: 'btn btn-primary' %>
+<%%= link_to t('helpers.links.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-success' %>
