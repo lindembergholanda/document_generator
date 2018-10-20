@@ -5,6 +5,7 @@ en:
       company: 'Company'
       company_address: 'Address'
       company_contact: 'Contact'
+      document_type: 'Document Type'
     attributes:
       user:
         email: E-mail
@@ -12,4 +13,14 @@ en:
         name: 'Name'
         trade_name: 'Trade Name'
         cnpj: 'CNPJ'
+      company_address:
+        street_address: 'Street Address'
+        zip_code: 'Zip Code'
+        number: 'Number'
+      company_contact:
+        name: 'Name'
+        occupation: 'Occupation'
+        email: 'E-mail'
+      document_type:
+        description: 'Description'
       

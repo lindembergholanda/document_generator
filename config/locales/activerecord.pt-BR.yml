@@ -5,6 +5,7 @@ pt-BR:
       company: 'Empresa'
       company_address: 'Endereço'
       company_contact: 'Contato'
+      document_type: 'Tipo Documento'
     attributes:
       user:
         email: E-mail
@@ -12,3 +13,13 @@ pt-BR:
         name: 'Nome'
         trade_name: 'Nome Fantasia'
         cnpj: 'CNPJ'
+      company_address:
+        street_address: 'Logradouro'
+        zip_code: 'CEP'
+        number: 'Número'
+      company_contact:
+        name: 'Nome'
+        occupation: 'Cargo'
+        email: 'E-mail'
+      document_type:
+        description: 'Descrição'

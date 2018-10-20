@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :company_contacts
-  resources :company_addresses
   root to: 'home#index'
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations", unlocks: "users/unlocks", passwords: "users/passwords", confirmations: "users/confirmations" }, path_names: {sign_in: "login", sign_out: "logout"}
   as :user do
@@ -10,4 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :companies
+  resources :company_addresses
+  resources :company_contacts
+  resources :document_types
 end
