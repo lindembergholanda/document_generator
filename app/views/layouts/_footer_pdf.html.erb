@@ -1,0 +1,24 @@
+<footer>
+  <div style="border: 1px solid;">
+    <table class="table table-borderless table-compass" style="width: 100%; margin-bottom: 0px;">
+      <tr>
+        <td style="width: 85%">
+          <div class="text-center" style="margin-left: 10px;"><b>Document Validation</b></div>
+          <br>
+          <div class="text-left">
+            <%= "Gerado em: #{@document.issuance_date.try(:strftime, '%d/%m/%Y %H:%m')}" %><br>
+            <%= "Autenticação Mecânica: #{@document.autentication}" %><br><br><br><br>
+          </div>
+
+          <div class="text-center" style="font-size: 12px;">
+            <div><b>DOC Generator</b></div>
+          </div>
+        </td>
+        <td style="width: 15%;">
+          <%= qrcode_image("document_#{@document.id}.png", width: 160, height: 160, style: 'padding-top: 3px')%><br>
+          <div class="text-center" style="font-size: 10px"><b>VALID BY QRCODE</b></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</footer>

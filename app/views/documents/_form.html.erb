@@ -1,0 +1,46 @@
+<%= form_for(@document) do |f| %>
+  <%= error_messages_for @document %>
+  <div class="form-group row">
+    <%= f.label :date, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-4 col-md-2">
+       <%= f.text_field :date, class: 'form-control date', placeholder: (Document.human_attribute_name :date), maxlength: 10  %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :company_id, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <%= select_tag 'company_id', options_for_select(@companies.collect{ |f| [f[:name], f[:id]]}, selected: f.object.try(:company_contact).try(:company_id)), {prompt: t('helpers.select.prompt'), class: 'form-control select2', style: 'width: 100%;', data:{remote: true, url: load_contacts_documents_path, method: :post}}  %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :company_contact_id, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <%= f.collection_select :company_contact_id, @company_contacts, :id, :name, {prompt: t('helpers.select.prompt') }, {class: "form-control select2"} %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :subject_id, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <%= f.collection_select :subject_id, @subjects, :id, :description, {prompt: t('helpers.select.prompt')}, {class: "form-control select2"} %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :responsible_id, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <%= f.collection_select :responsible_id, @responsibles, :id, :text_dropdown_responsibles, {prompt: t('helpers.select.prompt')}, {class: "form-control select2"} %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :text, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <%= f.text_area :text, class: 'form-control', placeholder: (Document.human_attribute_name :text), rows: 5, maxlength: 250  %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10 ml-sm-auto">
+      <%= link_to_index documents_path, class: 'btn btn-primary' %>
+      <%= button_to t('helpers.links.complete'), document_complete_path(@document.id), class: 'btn btn-warning', method: :put if @document.persisted? %>
+      <%= f.submit nil, class: 'btn btn-success', data: { disable_with: disable_with } %>
+    </div>
+  </div>
+<% end %>

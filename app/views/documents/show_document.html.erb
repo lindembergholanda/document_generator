@@ -1,0 +1,64 @@
+<div class="page-header">
+  <div class="text-center">
+    <h4><b><%= @document.responsible.company.name %></b></h4>
+    <h4><%= @document.responsible.company.trade_name %></h4>
+  </div>
+</div>
+
+<div class="conteudo-pdf">
+    <div class="text-right"><%= I18n.l(Date.current, format: :report) %></div>
+
+    <%= "#{@document.subject.document_type.description} nº #{@document.number}/#{@document.year}" %><br><br>
+    <%= @document.company_contact.personal_title %>,<br>
+    <%= @document.company_contact.name %><br>
+    <%= "#{@document.company_contact.occupation} - #{@document.company_contact.company.name}" %><br><br>
+    <%= "Assunto: #{@document.subject.description}" %><br><br>
+
+    <% unless @document.subject.text.strip.eql? "" %>
+      <textarea class="text-justify">
+        <%= @document.subject.text %>
+      </textarea>
+      <br><br>
+    <% end %>
+
+    <% unless @document.text.strip.eql? "" %>
+      <textarea class="text-justify">
+        <%= "#{@document.text.chomp}" %>
+      </textarea>
+      <br><br>
+    <% end %>
+
+    <br><br>
+
+    <div class="text-center">
+      <b><%= @document.responsible.name %></b><br>
+      <b><%= @document.responsible.occupation %></b><br>
+    </div>
+</div>
+
+<style type="text/css">
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    width: 98%;
+  }
+</style>
+
+<script type="application/javascript">
+    $(document).ready(function () {
+
+        $(document).ready(function () {
+            $("textarea").each(function () {
+                this.style.height = "1px";
+                this.style.height = (this.scrollHeight)+'px';
+            });
+        });
+
+        $("textarea").each(function () {
+            this.style.width = '890px';
+        });
+        $("textarea").addClass("disabled");
+    });
+</script>

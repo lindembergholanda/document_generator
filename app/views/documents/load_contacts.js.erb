@@ -1,0 +1,9 @@
+var companyContactSelect = $("#document_company_contact_id").html('');
+<% if not @company_contacts.nil? and @company_contacts.any? %>
+  <% @company_contacts.each do |contact| %>
+    var option = new Option("<%= "#{contact.name} - #{contact.occupation} - #{contact.sector}" %>", "<%= contact.id %>", false, false);
+    companyContactSelect.append(option).trigger('change');
+  <% end %>
+<% else %>
+  companyContactSelect.html('').trigger('change');
+<% end %>

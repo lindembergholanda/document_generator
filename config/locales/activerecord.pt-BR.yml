@@ -6,6 +6,8 @@ pt-BR:
       company_address: 'Endereço'
       company_contact: 'Contato'
       document_type: 'Tipo Documento'
+      subject: 'Assunto'
+      document: 'Documento'
     attributes:
       user:
         email: E-mail
@@ -18,8 +20,24 @@ pt-BR:
         zip_code: 'CEP'
         number: 'Número'
       company_contact:
+        personal_title: 'Tratamento'
         name: 'Nome'
         occupation: 'Cargo'
         email: 'E-mail'
+        send_document: 'Envia Documento?'
       document_type:
         description: 'Descrição'
+      subject:
+        description: 'Descrição'
+        text: 'Texto'
+        document_type_id: 'Tipo Documento'
+      document:
+        number: 'Número'
+        year: 'Ano'
+        text: 'Texto'
+        date: 'Data'
+        subject_id: 'Assunto'
+        company_id: 'Empresa'
+        company_contact_id: 'Contato'
+        responsible_id: 'Responsável'
+        autentication: 'Autenticação'

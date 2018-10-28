@@ -6,6 +6,7 @@ en:
       company_address: 'Address'
       company_contact: 'Contact'
       document_type: 'Document Type'
+      subject: 'Subject'
     attributes:
       user:
         email: E-mail
@@ -18,9 +19,25 @@ en:
         zip_code: 'Zip Code'
         number: 'Number'
       company_contact:
+        personal_title: 'Personal Title'
         name: 'Name'
         occupation: 'Occupation'
         email: 'E-mail'
+        send_document: 'Send Document?'
       document_type:
         description: 'Description'
+      subject:
+        description: 'Description'
+        text: 'Text'
+        document_type_id: 'Document Type'
+      document:
+        number: 'Number'
+        year: 'Year'
+        text: 'Text'
+        date: 'Date'
+        subject_id: 'Subject'
+        company_id: 'Company'
+        company_contact_id: 'COntact'
+        responsible_id: 'Responsible'
+        autentication: 'Autentication'
       

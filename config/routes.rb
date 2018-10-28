@@ -11,4 +11,13 @@ Rails.application.routes.draw do
   resources :company_addresses
   resources :company_contacts
   resources :document_types
+  resources :subjects
+  resources :documents do
+    put :complete
+    get :show_document
+    collection do
+      post :load_contacts
+    end
+  end
+
 end
