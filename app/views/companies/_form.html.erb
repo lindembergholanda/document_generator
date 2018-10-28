@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-sm-3 col-md-3">
                           <%= address.label :city_id, class: 'font-weight-bold' %>
-                          <%= address.collection_select :city_id, @cities, :id, :nome, {selected: address.object.city_id, prompt: '-- selecione --' }, {class: "form-control select2"} %>
+                          <%= address.collection_select :city_id, @cities, :id, :name, {selected: address.object.city_id, prompt: t('helpers.select.prompt') }, {class: "form-control select2"} %>
                         </div>
                       </div>
                     <% else %>
@@ -100,42 +100,77 @@
           <h5 class="card-title"><%= t('.title', default: CompanyContact.model_name.human) %></h5>
         </div>
         <div class="card-body">
-          <%= f.fields_for(:company_contact) do |contact| %>
+          <%= f.fields_for(:company_contacts) do |contact| %>
               <table class="table table-bordered">
                 <tr>
                   <td>
                     <% if contact.object.new_record? %>
                       <div class="row">
-                        <div class="col-sm-2 col-md-4">
-                          <%= contact.label :name, class: 'font-weight-bold' %>
-                          <%= contact.text_field :name, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :name), maxlength: 14 %>
+                        <div class="col-sm-2 col-md-1">
+                          <%= contact.label :personal_title, class: 'font-weight-bold' %>
+                          <%= contact.text_field :personal_title, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :personal_title), maxlength: 50 %>
                         </div>
 
-                        <div class="col-sm-4 col-md-4">
+                        <div class="col-sm-2 col-md-2">
+                          <%= contact.label :name, class: 'font-weight-bold' %>
+                          <%= contact.text_field :name, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :name), maxlength: 100 %>
+                        </div>
+
+                        <div class="col-sm-4 col-md-2">
                           <%= contact.label :occupation, class: 'font-weight-bold' %>
                           <%= contact.text_field :occupation, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :occupation), maxlength: 100 %>
                         </div>
 
-                        <div class="col-sm-3 col-md-4">
+                        <div class="col-sm-4 col-md-2">
+                          <%= contact.label :sector, class: 'font-weight-bold' %>
+                          <%= contact.text_field :sector, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :sector), maxlength: 100 %>
+                        </div>
+
+                        <div class="col-sm-3 col-md-3">
                           <%= contact.label :email, class: 'font-weight-bold' %>
                           <%= contact.text_field :email, class: 'form-control', placeholder: (CompanyContact.human_attribute_name :email), maxlength: 100 %>
+                        </div>
+
+                        <div class="col-sm-3 col-md-2">
+                          <%= contact.label :send_document, class: 'font-weight-bold' %>
+                          <div class="form-control-static">
+                            <%= label(:send_document, "#{t('helpers.links.noo')}", value: false) %>
+                            <%= contact.radio_button(:send_document, false) %>
+                            <%= label(:send_document, "#{t('helpers.links.yess')}", value: true) %>
+                            <%= contact.radio_button(:send_document, true) %>
+                          </div>
                         </div>
                       </div>
                     <% else %>
                       <div class="row">
-                        <div class="col-sm-2 col-md-4">
+                        <div class="col-sm-2 col-md-1">
+                          <%= contact.label :personal_title, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= contact.object.personal_title %></p>
+                        </div>
+
+                        <div class="col-sm-2 col-md-2">
                           <%= contact.label :name, class: 'font-weight-bold' %>
                           <p class="form-control-static"><%= contact.object.name %></p>
                         </div>
 
-                        <div class="col-sm-4 col-md-4">
+                        <div class="col-sm-4 col-md-2">
                           <%= contact.label :occupation, class: 'font-weight-bold' %>
                           <p class="form-control-static"><%= contact.object.occupation %></p>
                         </div>
 
-                        <div class="col-sm-3 col-md-4">
+                        <div class="col-sm-4 col-md-2">
+                          <%= contact.label :sector, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= contact.object.sector %></p>
+                        </div>
+
+                        <div class="col-sm-3 col-md-3">
                           <%= contact.label :email, class: 'font-weight-bold' %>
                           <p class="form-control-static"><%= contact.object.email %></p>
+                        </div>
+
+                        <div class="col-sm-3 col-md-2">
+                          <%= contact.label :send_document, class: 'font-weight-bold' %>
+                          <p class="form-control-static"><%= contact.object.send_document_description %></p>
                         </div>
                       </div>
                     <% end %>
@@ -146,7 +181,7 @@
                 </tr>
               </table>
           <% end %>
-          <%= f.link_to_add "<i class='fa fa-plus fa-lg'></i>".html_safe, :company_contact %>
+          <%= f.link_to_add "<i class='fa fa-plus fa-lg'></i>".html_safe, :company_contacts %>
         </div>
       </div>
     </div>
