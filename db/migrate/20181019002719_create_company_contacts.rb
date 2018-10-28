@@ -1,10 +1,13 @@
 class CreateCompanyContacts < ActiveRecord::Migration[5.2]
   def change
     create_table :company_contacts do |t|
+      t.string :personal_title
       t.string :name
       t.string :occupation
+      t.string :sector
       t.string :email
       t.integer :company_id
+      t.boolean :send_document
       t.timestamps
       t.timestamp :deleted_at
     end
