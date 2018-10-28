@@ -14,19 +14,20 @@
 //= require bootstrap/dist/js/bootstrap
 //= require datatables.net-bs4/js/dataTables.bootstrap4
 //= require datatables.net-responsive-bs4/js/responsive.bootstrap4
+//= require flatpickr/dist/flatpickr
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require jquery_nested_form
 //= require_tree .
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
     confirm_modal();
-});
 
-$(document).on("turbolinks:load", function () {
-    $.AdminLTE.layout.activate();
-    $('body').removeClass('hold-transition');
+    $('.date').flatpickr({
+        dateFormat: "d/m/Y",
+        locale: "pt"
+    });
 });
 
 function confirm_modal() {
