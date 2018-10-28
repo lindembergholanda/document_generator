@@ -3,7 +3,7 @@ class CompanyContact < ApplicationRecord
 
     belongs_to :company
 
-    validates :personal_title, :name, :occupation, :sector presence: true
+    validates :personal_title, :name, :occupation, :sector, presence: true
 
     scope :senders, -> { where(send_document: true) }
 
