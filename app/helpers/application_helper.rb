@@ -43,4 +43,11 @@ module ApplicationHelper
     html_options.reverse_merge!(method: :delete, class: 'btn btn-xs', data: { tooltip: true, confirm: t('messages.destroy.confirm'), placement: 'top', animation: true }, title: t('helpers.links.destroy'))
     link_to content_tag(:i, nil, class:'fa fa-trash fa-lg', style: 'color: red;'), url, html_options
   end
+
+  def qrcode_image(filename, options = {})
+    path = Rails.root.join("public/qrcodes/#{filename}")
+    options[:src] = path.to_s
+    attributes = options.map{ |k,v| "#{k}='#{v}'" }.join(" ")
+    raw("<img #{attributes}/>")
+  end
 end

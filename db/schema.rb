@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_140636) do
+ActiveRecord::Schema.define(version: 2018_10_20_221215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,13 @@ ActiveRecord::Schema.define(version: 2018_10_20_140636) do
   end
 
   create_table "company_contacts", force: :cascade do |t|
+    t.string "personal_title"
     t.string "name"
     t.string "occupation"
+    t.string "sector"
     t.string "email"
     t.integer "company_id"
+    t.boolean "send_document"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -68,6 +71,22 @@ ActiveRecord::Schema.define(version: 2018_10_20_140636) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.integer "number"
+    t.integer "year"
+    t.text "text"
+    t.datetime "date"
+    t.integer "subject_id"
+    t.integer "company_contact_id"
+    t.integer "responsible_id"
+    t.string "autentication"
+    t.datetime "issuance_date"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "short_name"
@@ -75,6 +94,15 @@ ActiveRecord::Schema.define(version: 2018_10_20_140636) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "description"
+    t.text "text"
+    t.integer "document_type_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,5 +135,8 @@ ActiveRecord::Schema.define(version: 2018_10_20_140636) do
   add_foreign_key "company_addresses", "cities", name: "fk_company_addresses_cities_id"
   add_foreign_key "company_addresses", "companies", name: "fk_company_addresses_companies_id"
   add_foreign_key "company_contacts", "companies", name: "fk_company_contacts_companies_id"
+  add_foreign_key "documents", "company_contacts", column: "responsible_id", name: "fk_documents_responsible_id_company_contacts_id"
+  add_foreign_key "documents", "company_contacts", name: "fk_documents_company_contacts_id"
   add_foreign_key "states", "countries", name: "fk_states_countries_id"
+  add_foreign_key "subjects", "document_types", name: "fk_subjects_document_types_id"
 end

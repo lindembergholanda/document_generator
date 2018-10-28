@@ -7,6 +7,7 @@ en:
         restrict_dependent_destroy:
           has_one: "Cannot delete record because a dependent %{record} exists"
           has_many: "Cannot delete record because dependent %{record} exist"
+        rescue: 'There was an error performing this action.'
   date:
     abbr_day_names:
     - Sun
@@ -146,7 +147,7 @@ en:
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
     select:
-      prompt: Por favor selecione
+      prompt: Select
     submit:
       create: Create
       creating: Creating...
@@ -165,6 +166,7 @@ en:
       actions: Actions
       clear: Clear
       cancel: Cancel
+      complete: Complete
   number:
     currency:
       format:
