@@ -1,7 +1,7 @@
 # encoding: utf-8
 class <%= controller_class_name %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "<%= plural_table_name.capitalize %>", :<%= plural_table_name %>_path
+  add_breadcrumb <%= singular_table_name.capitalize %>.model_name.human, :<%= plural_table_name %>_path
   add_breadcrumb I18n.t("breadcrumb.show"), :<%= singular_table_name %>_path, only: [:show]
   add_breadcrumb I18n.t("breadcrumb.new"), :new_<%= singular_table_name %>_path, only: [:new, :create]
   add_breadcrumb I18n.t("breadcrumb.edit"), :edit_<%= singular_table_name %>_path, only: [:edit, :update]

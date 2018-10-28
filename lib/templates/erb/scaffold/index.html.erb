@@ -13,20 +13,20 @@
     </tr>
   </thead>
   <tbody>
-    <%% @<%= singular_table_name.pluralize %> do |<%= singular_table_name %>| %>
+    <%% @<%= singular_table_name.pluralize %>.each do |<%= singular_table_name %>| %>
       <tr>
         <% attributes.each do |attribute| -%>
-          <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></th>
+          <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></th>
         <% end -%>
         <td>
           <%%=
-            btn = link_to_show(<%= singular_table_name %>_path(attribute))
-            btn << link_to_edit(edit_<%= singular_table_name %>_path(attribute))
-            btn << link_to_delete(<%= singular_table_name %>_path(attribute))
+            btn = link_to_show(<%= singular_table_name %>_path(<%= singular_table_name %>))
+            btn << link_to_edit(edit_<%= singular_table_name %>_path(<%= singular_table_name %>))
+            btn << link_to_delete(<%= singular_table_name %>_path(<%= singular_table_name %>))
             content_tag :div, btn, class: 'btn-group', role:'group'
           %>
         </td>
       </tr>
-    <% end %>
+    <%% end %>
   </tbody>
 </table>
