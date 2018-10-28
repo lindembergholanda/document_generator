@@ -13,6 +13,7 @@
  *= require bootstrap/dist/css/bootstrap
  *= require datatables.net-bs4/css/dataTables.bootstrap4
  *= require datatables.net-responsive-bs4/css/responsive.bootstrap4
+ *= require flatpickr/dist/flatpickr
  *= require_tree .
  *= require_self
  */
@@ -23,4 +24,65 @@
 
 .field-with-errors input {
   border: 1px solid red;
+}
+
+.navbar {
+    background-color: #323c48 !important;
+}
+/* change the brand and text color */
+.navbar .navbar-brand,
+.navbar .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar .nav-item.active .nav-link,
+.navbar .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+.content-header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.content-header > .breadcrumb {
+    float: right;
+    background: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    padding: 7px 5px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    border-radius: 2px;
+}
+.content-header > .breadcrumb > li > a {
+    color: #444;
+    text-decoration: none;
+    display: inline-block;
+}
+.content-header > .breadcrumb > li > a > .fa,
+.content-header > .breadcrumb > li > a > .glyphicon,
+.content-header > .breadcrumb > li > a > .ion {
+    margin-right: 5px;
+}
+.content-header > .breadcrumb > li + li:before {
+    content: '>\00a0';
+}
+.content-header > .breadcrumb {
+    position: relative;
+    margin-top: 5px;
+    top: 0;
+    right: 0;
+    float: none;
+    background: #d2d6de;
+    padding-left: 10px;
+}
+.content-header > .breadcrumb li:before {
+    color: #97a0b3;
 }
