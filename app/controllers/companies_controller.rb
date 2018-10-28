@@ -40,7 +40,7 @@ class CompaniesController < ApplicationController
 
   def update
     if @company.update(company_params)
-        redirect_to companies_url, notice: t('messages.update.notice', :model => "Company")
+        redirect_to edit_company_url(@company), notice: t('messages.update.notice', :model => "Company")
     else
       render :edit
     end
@@ -65,7 +65,7 @@ class CompaniesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def company_params
-      params[:company].permit(:name, :trade_name, :cnpj, company_address_attributes: [:id, :zip_code, :street_address, :number, :city_id, :_destroy]) 
+      params[:company].permit(:name, :trade_name, :cnpj, company_address_attributes: [:id, :zip_code, :street_address, :number, :city_id, :_destroy], company_contacts_attributes: [:id, :personal_title, :name, :occupation, :email, :send_document, :_destroy]) 
     end
 
     def resources
