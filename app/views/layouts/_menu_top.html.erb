@@ -1,32 +1,33 @@
-<!-- Main Header -->
-<header class="main-header">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to 'DOC', root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <!-- Logo -->
-  <%= link_to root_path, class: 'logo' do %>
-    <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><i class="fa fa-file"></i></span>
-    <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><p><span><%= sigla_sistema %></span></p></span>
-  <% end %>
-
-  <!-- Header Navbar -->
-  <nav class="navbar navbar-static-top" role="navigation">
-    <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-    </a>
-    <!-- Navbar Right Menu -->
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <%= "#{current_user.email}#{session[:tipo_user].blank? ? '' : "(#{session[:tipo_user].upcase})"}" %><b class="caret"></b></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="<%#= edit_user_registration_path %>">Dados Pessoais</a></li>
-            <li class="divider"></li>
-            <li><%= link_to(' Sair', destroy_user_session_path, :method => :delete, :class => 'fa fa-user') %></li>
-          </ul>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= current_class?("#{companies_path}") %>">
+        <%= link_to Company.model_name.human, companies_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item <%= current_class?("#{document_types_path}") %>">
+        <%= link_to DocumentType.model_name.human, document_types_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item <%= current_class?("#{subjects_path}") %>">
+        <%= link_to Subject.model_name.human, subjects_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item <%= current_class?("#{documents_path}") %>">
+        <%= link_to Document.model_name.human, documents_path, class: 'nav-link' %>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <%= "#{current_user.email}#{session[:tipo_user].blank? ? '' : "(#{session[:tipo_user].upcase})"}" %><b class="caret"></b></a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to(' Sair', destroy_user_session_path, :method => :delete, :class => 'dropdown-item fa fa-user') %>
+          </div>
         </li>
       </ul>
-    </div>
-  </nav>
-</header>
-<!-- Left side column. contains the logo and sidebar -->
+    </span>
+  </div>
+</nav>
