@@ -29,5 +29,21 @@ module DocumentGenerator
       g.test_framework    nil
       g.jbuilder          false
     end
+
+    config.exceptions_app = self.routes
+    
+    config.middleware.use Rack::Attack
+    
+    # Config Rack-Cors
+    config.middleware.insert_before 0, Rack::Cors do
+ 
+      allow do
+        origins '*'
+        resource '*',
+        headers: :any,
+        methods: %i(get post put patch delete options head)
+      end
+
+    end
   end
 end
