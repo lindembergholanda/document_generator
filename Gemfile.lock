@@ -113,6 +113,9 @@ GEM
     pg (0.21.0)
     puma (3.12.0)
     rack (2.0.5)
+    rack-attack (5.4.1)
+      rack (>= 1.0, < 3)
+    rack-cors (1.0.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.1)
@@ -216,6 +219,8 @@ DEPENDENCIES
   paranoia
   pg (~> 0.18)
   puma (~> 3.11)
+  rack-attack
+  rack-cors
   rails (~> 5.2.1)
   rqrcode (~> 0.10.1)
   ruby-debug-ide (~> 0.6.0)

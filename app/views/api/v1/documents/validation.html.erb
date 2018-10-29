@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title"><%= t('.title', default: @document.class.model_name.human ) %></h5>
+        <h6 class="card-subtitle"></h6>
+      </div>
+      <div class="card-body">
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :number %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= "#{@document.number}/#{@document.year}" %></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :date %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= @document.date.try(:strftime, "%d/%m/%Y") %></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :company_id %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= @document.company_contact.company.name %></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :company_contact_id %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= "#{@document.company_contact.name} - #{@document.company_contact.occupation} - #{@document.company_contact.sector}" %></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :subject_id %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= @document.subject.description %></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :responsible_id %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= "#{@document.responsible.name} - #{@document.responsible.occupation} - #{@document.responsible.sector}" %></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :text %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= @document.text %></p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right"><%= Document.human_attribute_name :autentication %></label>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+              <p class="form-control-plaintext"><%= @document.autentication %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
