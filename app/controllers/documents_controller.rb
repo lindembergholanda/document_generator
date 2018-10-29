@@ -1,7 +1,8 @@
 # encoding: utf-8
 class DocumentsController < ApplicationController
-  before_action :set_document, only: [:show, :edit, :update, :destroy, :complete, :show_document]
+  before_action :set_document, only: [:show, :edit, :update, :destroy, :finish, :show_document]
   before_action :resources, only: [:create, :new, :edit, :update]
+  before_action :valid_edit, only: [:edit]
 
   add_breadcrumb Document.model_name.human, :documents_path
   add_breadcrumb I18n.t("breadcrumb.show"), :document_path, only: [:show]
@@ -70,8 +71,14 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def complete
-    @document.complete!
+  def finish
+    begin
+      @document.pdf_html = render_to_string template: "documents/show_document.html.erb", layout: 'pdf.html', page_size: 'A4'
+      @document.complete!
+    rescue
+      flash[:error] = t('messages.rescue')
+    end
+    redirect_to documents_url
   end
 
   def show_document
@@ -100,4 +107,12 @@ class DocumentsController < ApplicationController
       @subjects = Subject.all
       @responsibles = CompanyContact.senders
     end
+
+    def valid_edit
+      if @document.completed?
+        flash[:warning] = t('messages.not_permited')
+        redirect_to documents_path
+      end
+    end
+
 end

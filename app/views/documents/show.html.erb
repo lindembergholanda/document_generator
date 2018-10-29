@@ -51,7 +51,7 @@
           <div class="form-group row">
             <div class="col-sm-10 ml-sm-auto">
               <%= link_to t('helpers.links.list'), documents_path, class: 'btn btn-primary' %>
-              <%= link_to t('helpers.links.edit'), edit_document_path(@document), class: 'btn btn-success' %>
+              <%= link_to t('helpers.links.edit'), edit_document_path(@document), class: 'btn btn-success' unless @document.completed? %>
             </div>
           </div>
         </div>

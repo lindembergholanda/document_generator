@@ -39,7 +39,7 @@
   <div class="form-group row">
     <div class="col-sm-10 ml-sm-auto">
       <%= link_to_index documents_path, class: 'btn btn-primary' %>
-      <%= button_to t('helpers.links.complete'), document_complete_path(@document.id), class: 'btn btn-warning', method: :put if @document.persisted? %>
+      <%= link_to t('helpers.links.complete'), document_finish_path(@document.id), class: 'btn btn-warning', method: :post if @document.persisted? %>
       <%= f.submit nil, class: 'btn btn-success', data: { disable_with: disable_with } %>
     </div>
   </div>

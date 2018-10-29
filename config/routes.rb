@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   resources :document_types
   resources :subjects
   resources :documents do
-    put :complete
+    post :finish
     get :show_document
     collection do
       post :load_contacts
     end
   end
+
+
+  get 'documents/validation/:autentication' => 'api/v1/documents#validation', as: :document_validation
 
 end
