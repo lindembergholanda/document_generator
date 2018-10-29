@@ -27,8 +27,12 @@
         <td>
           <%=
             btn = link_to_show(document_path(document))
-            btn << link_to_edit(edit_document_path(document))
-            btn << link_to_delete(document_path(document))
+            unless document.completed?
+              btn << link_to_edit(edit_document_path(document))
+              btn << link_to_delete(document_path(document))
+            else
+              btn << link_to(content_tag(:i, nil, class:'fa fa-file'), rails_blob_path(document.file, disposition: 'attachment'), class: 'btn btn-xs btn-default')
+            end
             content_tag :div, btn, class: 'btn-group', role:'group'
           %>
         </td>

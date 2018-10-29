@@ -7,7 +7,6 @@ en:
         restrict_dependent_destroy:
           has_one: "Cannot delete record because a dependent %{record} exists"
           has_many: "Cannot delete record because dependent %{record} exist"
-        rescue: 'There was an error performing this action.'
   date:
     abbr_day_names:
     - Sun
@@ -247,3 +246,5 @@ en:
     destroy: 
       notice: 'Registry deleted successfully.'
       confirm: 'Are you sure you want to delete?'
+    rescue: 'There was an error performing this action.'
+    not_permited: 'This action is not permited.'

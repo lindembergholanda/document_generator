@@ -7,6 +7,7 @@ class Document < ApplicationRecord
     belongs_to :company_contact
     belongs_to :responsible, class_name: 'CompanyContact', foreign_key: 'responsible_id'
 
+    attr_accessor :pdf_html
     validates :date, :company_contact_id, :subject_id, :responsible_id, presence: true
 
     before_create :generate_number
@@ -15,10 +16,10 @@ class Document < ApplicationRecord
 
     aasm column: :state do
         state :created, :initial => true
-        state :complete
+        state :completed
 
         event :complete, after_commit: :generate_document do
-            transitions :from => :created, :to => :complete
+            transitions :from => :created, :to => :completed
         end
     end
 
@@ -48,7 +49,8 @@ class Document < ApplicationRecord
     def generate_qrcode
         require 'rqrcode'
         begin
-            qrcode = RQRCode::QRCode.new("http://localhost:3000/document_validation/#{self.autentication}")
+            # Get own IP. OBS: Change to System URL
+            qrcode = RQRCode::QRCode.new("http://#{Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)}:3000/documents/validation/#{self.autentication}")
             png = qrcode.as_png(
                 resize_gte_to: false,
                 resize_exactly_to: false,
@@ -61,7 +63,7 @@ class Document < ApplicationRecord
             )
             png.save("public/qrcodes/document_#{self.id}.png")
         rescue Exception => e
-            raise 'Erro de qrcode' + e.inspect
+            raise I18n.t('messages.rescue')
         end
     end
 
@@ -74,20 +76,21 @@ class Document < ApplicationRecord
                     javascript_delay: 0,
                     page_size: 'A4'
                 )
-                # Salvando documento gerado
-                tempfile = Tempfile.new("comunicacao.pdf")
+
+                tempfile = Tempfile.new("document.pdf")
                 tempfile.binmode
                 tempfile.write pdf_string
                 tempfile.close
 
                 self.issuance_date = DateTime.current
-                self.file = File.open tempfile.path
+                self.file.attach(io: File.open(tempfile), filename: "document.pdf", content_type: "application/json")
                 self.save
 
                 tempfile.delete
             rescue => e
                 ActiveRecord::Rollback
-                raise t('activerecord.errors.messages.rescue')
+                puts e.inspect
+                raise I18n.t('messages.rescue')
             end
         end
     end

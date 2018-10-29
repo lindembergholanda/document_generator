@@ -6,8 +6,6 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
-        rescue: 'Ocorreu um erro ao realizar esta ação.'
-
   date:
     abbr_day_names:
     - Dom
@@ -258,4 +256,6 @@ pt-BR:
     destroy: 
       notice: 'Registro excluído com sucesso.'
       confirm: 'Tem certeza que deseja excluir?'
+    rescue: 'Ocorreu um erro ao realizar esta ação.'
+    not_permited: 'Ação não permitida.'
       
