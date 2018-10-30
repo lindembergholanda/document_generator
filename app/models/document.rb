@@ -73,7 +73,7 @@ class Document < ApplicationRecord
             begin
                 pdf_string = WickedPdf.new.pdf_from_string(
                     self.pdf_html,
-                    javascript_delay: 0,
+                    javascript_delay: 2,
                     page_size: 'A4'
                 )
 
