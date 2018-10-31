@@ -52,7 +52,7 @@ class DocumentsController < ApplicationController
       if @document.destroy
         format.html { redirect_to documents_url, notice: t('messages.destroy.notice', :model => "Document")}
       else
-        format.html { redirect_to documents_url, alert: @document.destroy }
+        format.html { redirect_to documents_url, alert: @document.errors.full_messages[0] }
         format.json { head :no_content }
        end
     end

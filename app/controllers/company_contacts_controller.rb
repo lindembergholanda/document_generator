@@ -49,7 +49,7 @@ class CompanyContactsController < ApplicationController
       if @company_contact.destroy
         format.html { redirect_to company_contacts_url, notice: t('messages.destroy.notice', :model => "Company_contact")}
       else
-        format.html { redirect_to company_contacts_url, alert: @company_contact.destroy }
+        format.html { redirect_to company_contacts_url, alert: @company_contact.errors.full_messages[0] }
         format.json { head :no_content }
        end
     end

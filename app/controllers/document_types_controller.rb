@@ -49,7 +49,7 @@ class DocumentTypesController < ApplicationController
       if @document_type.destroy
         format.html { redirect_to document_types_url, notice: t('messages.destroy.notice', :model => "Document_type")}
       else
-        format.html { redirect_to document_types_url, alert: @document_type.destroy }
+        format.html { redirect_to document_types_url, alert: @document_type.errors.full_messages[0] }
         format.json { head :no_content }
        end
     end

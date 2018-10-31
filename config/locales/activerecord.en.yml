@@ -26,10 +26,12 @@ en:
         send_document: 'Send Document?'
       document_type:
         description: 'Description'
+        subjects: 'Subjects'
       subject:
         description: 'Description'
         text: 'Text'
         document_type_id: 'Document Type'
+        documents: 'Documents'
       document:
         number: 'Number'
         year: 'Year'

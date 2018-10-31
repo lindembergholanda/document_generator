@@ -51,7 +51,7 @@ class SubjectsController < ApplicationController
       if @subject.destroy
         format.html { redirect_to subjects_url, notice: t('messages.destroy.notice', :model => "Subject")}
       else
-        format.html { redirect_to subjects_url, alert: @subject.destroy }
+        format.html { redirect_to subjects_url, alert: @subject.errors.full_messages[0] }
         format.json { head :no_content }
        end
     end

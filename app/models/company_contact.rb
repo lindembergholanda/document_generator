@@ -1,7 +1,9 @@
 class CompanyContact < ApplicationRecord
     acts_as_paranoid without_default_scope: true
 
-    belongs_to :company
+    belongs_to :company, inverse_of: :company_contacts
+    has_many :documents, dependent: :restrict_with_error
+    has_many :responsibles, class_name: 'Document', foreign_key: 'responsible_id', dependent: :restrict_with_error
 
     validates :personal_title, :name, :occupation, :sector, presence: true
 
