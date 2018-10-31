@@ -27,10 +27,12 @@ pt-BR:
         send_document: 'Envia Documento?'
       document_type:
         description: 'Descrição'
+        subjects: 'Assuntos'
       subject:
         description: 'Descrição'
         text: 'Texto'
         document_type_id: 'Tipo Documento'
+        documents: 'Documentos'
       document:
         number: 'Número'
         year: 'Ano'

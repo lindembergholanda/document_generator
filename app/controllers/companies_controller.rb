@@ -9,6 +9,7 @@ class CompaniesController < ApplicationController
   add_breadcrumb I18n.t("breadcrumb.edit"), :edit_company_path, only: [:edit, :update]
 
   respond_to :html
+  
   def index
     @companies = Company.all
   end
@@ -39,10 +40,17 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    if @company.update(company_params)
-        redirect_to edit_company_url(@company), notice: t('messages.update.notice', :model => "Company")
-    else
-      render :edit
+    begin
+      respond_to do |format|
+        if @company.update(company_params)
+            format.html { redirect_to edit_company_url(@company), notice: t('messages.update.notice', :model => "Company") }
+        else
+          format.html { redirect_to edit_company_url(@company), alert: @company.errors.full_messages[0] }
+          format.json { head :no_content }
+        end
+      end
+    rescue 
+      redirect_to edit_company_url(@company), alert: t('messages.rescue')
     end
   end
 
@@ -51,7 +59,7 @@ class CompaniesController < ApplicationController
       if @company.destroy
         format.html { redirect_to companies_url, notice: t('messages.destroy.notice', :model => "Company")}
       else
-        format.html { redirect_to companies_url, alert: @company.destroy }
+        format.html { redirect_to companies_url, alert: @company.errors.full_messages[0] }
         format.json { head :no_content }
        end
     end

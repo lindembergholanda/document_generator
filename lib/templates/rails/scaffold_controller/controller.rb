@@ -49,7 +49,7 @@ class <%= controller_class_name %>Controller < ApplicationController
       if @<%= orm_instance.destroy %>
         format.html { redirect_to <%= index_helper %>_url, notice: t('messages.destroy.notice', :model => "<%= singular_table_name.capitalize %>")}
       else
-        format.html { redirect_to <%= index_helper %>_url, alert: @<%= orm_instance.destroy %> }
+        format.html { redirect_to <%= index_helper %>_url, alert: @<%= orm_instance.errors.full_messages[0] %> }
         format.json { head :no_content }
        end
     end

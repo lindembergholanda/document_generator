@@ -1,8 +1,8 @@
 class Company < ApplicationRecord
     acts_as_paranoid without_default_scope: true
     
-    has_many :company_address, dependent: :restrict_with_error
-    has_many :company_contacts, dependent: :restrict_with_error
+    has_many :company_address, inverse_of: :company, dependent: :destroy
+    has_many :company_contacts, inverse_of: :company, dependent: :destroy
 
     validates :name, :trade_name, :cnpj, presence: true
 
