@@ -24,6 +24,8 @@ pt-BR:
         name: 'Nome'
         occupation: 'Cargo'
         email: 'E-mail'
+        documents: 'Documentos'
+        responsibles: 'Responsáveis'
         send_document: 'Envia Documento?'
       document_type:
         description: 'Descrição'

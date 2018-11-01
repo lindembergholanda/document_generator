@@ -49,8 +49,8 @@ class CompaniesController < ApplicationController
           format.json { head :no_content }
         end
       end
-    rescue 
-      redirect_to edit_company_url(@company), alert: t('messages.rescue')
+    rescue ActiveRecord::RecordNotDestroyed => e
+      redirect_to edit_company_url(@company), alert: e.record.errors.full_messages[0]
     end
   end
 
