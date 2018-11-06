@@ -39,7 +39,7 @@ en:
         date: 'Date'
         subject_id: 'Subject'
         company_id: 'Company'
-        company_contact_id: 'COntact'
+        company_contact_id: 'Contact'
         responsible_id: 'Responsible'
         autentication: 'Autentication'
       
