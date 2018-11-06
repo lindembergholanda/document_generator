@@ -33,6 +33,7 @@ pt-BR:
       subject:
         description: 'Descrição'
         text: 'Texto'
+        document_type: 'Tipo Documento'
         document_type_id: 'Tipo Documento'
         documents: 'Documentos'
       document:
@@ -41,7 +42,10 @@ pt-BR:
         text: 'Texto'
         date: 'Data'
         subject_id: 'Assunto'
+        subject: 'Assunto'
         company_id: 'Empresa'
         company_contact_id: 'Contato'
+        company_contact: 'Contato'
         responsible_id: 'Responsável'
+        responsible: 'Responsável'
         autentication: 'Autenticação'
