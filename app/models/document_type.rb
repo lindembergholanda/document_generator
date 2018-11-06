@@ -3,5 +3,5 @@ class DocumentType < ApplicationRecord
 
     has_many :subjects, dependent: :restrict_with_error
 
-     validates :description, presence: true
+    validates :description, presence: true
 end
