@@ -14,13 +14,11 @@
  *= require datatables.net-bs4/css/dataTables.bootstrap4
  *= require datatables.net-responsive-bs4/css/responsive.bootstrap4
  *= require flatpickr/dist/flatpickr
+ *= require font-awesome/scss/font-awesome
+ *= require font-awesome-overwrite
  *= require_tree .
  *= require_self
  */
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 
 .field-with-errors input {
   border: 1px solid red;

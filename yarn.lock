@@ -44,6 +44,16 @@ flatpickr@^4.5.2:
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.2.tgz#47c8ad472a096e5fb7e74b809b0703535383f20d"
   integrity sha512-jDy4QYGpmiy7+Qk8QvKJ4spjDdxcx9cxMydmq1x427HkKWBw0qizLYeYM2F6tMcvvqGjU5VpJS55j4LnsaBblA==
 
+font-awesome@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
+  integrity sha1-j6jPBBGhoxr9B7BtKQK7n8gVoTM=
+
+jquery-mask-plugin@^1.14.15:
+  version "1.14.15"
+  resolved "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.15.tgz#9daabb41024383cba2a793bacfa46ef8f87273a5"
+  integrity sha512-/mI1N5WG9E7JmjFWIQBIMuG/4QlZDAXuoNjHoqVWZSMah+go5hp/xKI/xC0Jud9Ly4HqqhFxY4AXLTUZT+J7Hg==
+
 jquery@>=1.7, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"

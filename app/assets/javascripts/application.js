@@ -12,9 +12,13 @@
 //
 //= require jquery
 //= require bootstrap/dist/js/bootstrap
+//= require datatables.net/js/jquery.dataTables
 //= require datatables.net-bs4/js/dataTables.bootstrap4
+//= require datatables.net-responsive/js/dataTables.responsive
 //= require datatables.net-responsive-bs4/js/responsive.bootstrap4
 //= require flatpickr/dist/flatpickr
+//= require flatpickr/dist/l10n/pt
+//= require jquery-mask-plugin/dist/jquery.mask
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -28,6 +32,8 @@ $(document).on('turbolinks:load', function () {
         dateFormat: "d/m/Y",
         locale: "pt"
     });
+
+    $(".cnpj").mask("00.000.000/0000-00");
 });
 
 function confirm_modal() {
