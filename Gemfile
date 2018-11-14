@@ -28,14 +28,9 @@ gem 'paranoia'
 gem 'wicked_pdf', '~> 1.1'
 gem 'wkhtmltopdf-binary'
 gem 'nested_form'
-gem 'font-awesome-sass', '4.7.0'
 gem 'breadcrumbs_on_rails' # Paths
 gem 'aasm'
 gem 'rqrcode', '~> 0.10.1'
-
-# API
-gem 'rack-cors'
-gem 'rack-attack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
