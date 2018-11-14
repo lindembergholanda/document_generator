@@ -4,5 +4,6 @@ class City < ApplicationRecord
     has_many :company_address, dependent: :restrict_with_error
     belongs_to :state
 
-    validates :name, :capital, :state_id, presence: true
+    validates :name, :state_id, presence: true
+    validates :capital, inclusion: { in: [ true, false ], message: I18n.t('errors.messages.blank') }
 end
