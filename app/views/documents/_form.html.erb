@@ -9,7 +9,7 @@
   <div class="form-group row">
     <%= f.label :company_id, class: 'col-form-label col-xs-2 col-sm-2 col-md-2 text-sm-right' %>
     <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= select_tag 'company_id', options_for_select(@companies.collect{ |f| [f[:name], f[:id]]}, selected: f.object.try(:company_contact).try(:company_id)), {prompt: t('helpers.select.prompt'), class: 'form-control select2', style: 'width: 100%;', data:{remote: true, url: load_contacts_documents_path, method: :post}}  %>
+      <%= select_tag 'company_id', options_for_select(@companies.collect{ |f| [f[:name], f[:id]]}, selected: f.object.try(:company_contact).try(:company_id)), {prompt: t('helpers.select.prompt'), class: 'form-control', data:{remote: true, url: load_contacts_documents_path, method: :post}}  %>
     </div>
   </div>
   <div class="form-group row">
