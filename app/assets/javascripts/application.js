@@ -19,22 +19,22 @@
 //= require flatpickr/dist/flatpickr
 //= require flatpickr/dist/l10n/pt
 //= require jquery-mask-plugin/dist/jquery.mask
+//= require select2/dist/js/select2
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require jquery_nested_form
 //= require_tree .
 
-$(document).on('turbolinks:load', function () {
+var ready = function() {
     confirm_modal();
-
-    $('.date').flatpickr({
-        dateFormat: "d/m/Y",
-        locale: "pt"
+    fields_masks();
+    $(".add_nested_fields").on('click', function () {
+        setTimeout(function(){
+            fields_masks();
+        }, 200);
     });
-
-    $(".cnpj").mask("00.000.000/0000-00");
-});
+};
 
 function confirm_modal() {
     $('a[data-confirm]').click(function (ev) {
@@ -48,4 +48,23 @@ function confirm_modal() {
         $('#dataConfirmModal').modal({ show: true });
         return false;
     });
+}
+
+function fields_masks() {
+    $('.date').flatpickr({
+        dateFormat: "d/m/Y",
+        locale: "pt"
+    });
+
+    $('.select2').select2({
+        theme: "bootstrap4"
+    });
+
+    $(".cnpj").mask("00.000.000/0000-00");
+}
+
+if (typeof Turbolinks == "undefined") {
+    $(document).ready(ready);
+} else {
+    $(document).on("turbolinks:load", ready);
 }
