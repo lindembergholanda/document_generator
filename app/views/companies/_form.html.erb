@@ -44,7 +44,7 @@
                           <%= address.text_field :zip_code, class: 'form-control zip-code', placeholder: (CompanyAddress.human_attribute_name :zip_code), maxlength: 14 %>
                         </div>
 
-                        <div class="col-sm-4 col-md-6">
+                        <div class="col-sm-3 col-md-4">
                           <%= address.label :street_address, class: 'font-weight-bold' %>
                           <%= address.text_field :street_address, class: 'form-control', placeholder: (CompanyAddress.human_attribute_name :street_address), maxlength: 100 %>
                         </div>
@@ -53,11 +53,33 @@
                           <%= address.label :number, class: 'font-weight-bold' %>
                           <%= address.text_field :number, class: 'form-control', placeholder: (CompanyAddress.human_attribute_name :number), maxlength: 100 %>
                         </div>
+                        <div class="col-sm-2 col-md-2">
+                          <%= address.label :state_id, class: 'font-weight-bold' %>
+                          <%= address.collection_select :state_id, @states, :id, :name, {selected: "#{address.object.city.state_id rescue nil}", prompt: t('helpers.select.prompt') }, {class: "form-control select2"} %>
+                        </div>
                         <div class="col-sm-3 col-md-3">
                           <%= address.label :city_id, class: 'font-weight-bold' %>
                           <%= address.collection_select :city_id, @cities, :id, :name, {selected: address.object.city_id, prompt: t('helpers.select.prompt') }, {class: "form-control select2"} %>
                         </div>
                       </div>
+                      <script type="text/javascript">
+                        $("[id$='_state_id']").on('change', function () {
+                              var dropdown = $("[id$='_city_id']");
+                              dropdown.find("option:gt(0)").remove();
+                              $.ajax({
+                                  type: 'POST',
+                                  url: root_path + 'states/load_cities/',
+                                  data: { state_id: $(this).val()},
+                                  success: function (data) {
+                                      if (data != null) {
+                                          $.each(data.cities, function (key, entry) {
+                                              dropdown.append($('<option></option>').attr('value', entry.id).text(entry.name));
+                                          })
+                                      } 
+                                  }
+                              });
+                          });
+                        </script>
                     <% else %>
                       <div class="row">
                         <div class="col-sm-2 col-md-2">
@@ -76,7 +98,7 @@
                         </div>
                         <div class="col-sm-3 col-md-3">
                           <%= address.label :city_id, class: 'font-weight-bold' %>
-                          <p class="form-control-static"><%= "#{address.object.city.name}/#{address.object.city.state.trade_name}" rescue '' %></p>
+                          <p class="form-control-static"><%= "#{address.object.city.name}/#{address.object.city.state.short_name}" rescue '' %></p>
                         </div>
                       </div>
                     <% end %>

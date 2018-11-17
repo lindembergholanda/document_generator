@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     delete "/logout" => "users/sessions#destroy"
   end
 
+  namespace :states do
+      post :load_cities
+  end
+  
   resources :companies
   resources :company_addresses
   resources :company_contacts
@@ -19,7 +23,6 @@ Rails.application.routes.draw do
       post :load_contacts
     end
   end
-
 
   get 'documents/validation/:autentication' => 'api/v1/documents#validation', as: :document_validation
 

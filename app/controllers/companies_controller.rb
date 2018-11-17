@@ -77,6 +77,7 @@ class CompaniesController < ApplicationController
     end
 
     def resources
-      @cities = City.all
+      @states = State.all
+      @cities = Array.new
     end
 end
