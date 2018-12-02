@@ -35,6 +35,12 @@ gem 'rqrcode', '~> 0.10.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.6'
+  gem 'capybara'
+  gem 'faker'
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 group :development do

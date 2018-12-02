@@ -1,6 +1,7 @@
 module ValidateCnpj
     def self.valid?(value)
         value.gsub!(/[^0-9]/, '')
+        return false if value.eql? "00000000000000"
         digit = value.slice(-2, 2)
         control = ''
         if value.size == 14

@@ -43,7 +43,7 @@ class CompaniesController < ApplicationController
     begin
       respond_to do |format|
         if @company.update(company_params)
-            format.html { redirect_to edit_company_url(@company), notice: t('messages.update.notice', :model => "Company") }
+            format.html { redirect_to edit_company_url(@company), notice: I18n.t('messages.update.notice') }
         else
           format.html { redirect_to edit_company_url(@company), alert: @company.errors.full_messages[0] }
           format.json { head :no_content }
@@ -57,7 +57,7 @@ class CompaniesController < ApplicationController
   def destroy
     respond_to do |format|
       if @company.destroy
-        format.html { redirect_to companies_url, notice: t('messages.destroy.notice', :model => "Company")}
+        format.html { redirect_to companies_url, notice: I18n.t('messages.destroy.notice')}
       else
         format.html { redirect_to companies_url, alert: @company.errors.full_messages[0] }
         format.json { head :no_content }

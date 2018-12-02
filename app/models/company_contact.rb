@@ -6,6 +6,7 @@ class CompanyContact < ApplicationRecord
     has_many :responsibles, class_name: 'Document', foreign_key: 'responsible_id', dependent: :restrict_with_error
 
     validates :personal_title, :name, :occupation, :sector, presence: true
+    validates :send_document, inclusion: { in: [ true, false ], message: I18n.t('errors.messages.blank') }
 
     scope :senders, -> { where(send_document: true) }
 

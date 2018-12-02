@@ -38,7 +38,7 @@ class DocumentTypesController < ApplicationController
 
   def update
     if @document_type.update(document_type_params)
-        redirect_to document_types_url, notice: t('messages.update.notice', :model => "Document_type")
+        redirect_to document_types_url, notice: I18n.t('messages.update.notice')
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class DocumentTypesController < ApplicationController
   def destroy
     respond_to do |format|
       if @document_type.destroy
-        format.html { redirect_to document_types_url, notice: t('messages.destroy.notice', :model => "Document_type")}
+        format.html { redirect_to document_types_url, notice: I18n.t('messages.destroy.notice')}
       else
         format.html { redirect_to document_types_url, alert: @document_type.errors.full_messages[0] }
         format.json { head :no_content }

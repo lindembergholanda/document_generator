@@ -40,7 +40,7 @@ class SubjectsController < ApplicationController
 
   def update
     if @subject.update(subject_params)
-        redirect_to subjects_url, notice: t('messages.update.notice', :model => "Subject")
+        redirect_to subjects_url, notice: I18n.t('messages.update.notice')
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class SubjectsController < ApplicationController
   def destroy
     respond_to do |format|
       if @subject.destroy
-        format.html { redirect_to subjects_url, notice: t('messages.destroy.notice', :model => "Subject")}
+        format.html { redirect_to subjects_url, notice: I18n.t('messages.destroy.notice')}
       else
         format.html { redirect_to subjects_url, alert: @subject.errors.full_messages[0] }
         format.json { head :no_content }
