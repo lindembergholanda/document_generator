@@ -32,3 +32,8 @@ node_modules/
 .vscode
 .DS_Store
 .idea
+
+Gemfile.lock
+.ruby-gemset
+.ruby-version
+yarn.lock
