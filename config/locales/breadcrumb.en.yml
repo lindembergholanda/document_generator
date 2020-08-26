@@ -1,5 +1,6 @@
 en:
-  breadcrumb:
+  breadcrumbs:
+    home: 'Home'
     new: 'New'
     edit: 'Edit'
     show: 'Show'

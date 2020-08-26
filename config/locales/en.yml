@@ -166,6 +166,10 @@ en:
       clear: Clear
       cancel: Cancel
       complete: Complete
+      logout: 'Logout'
+      countries:
+        br: 'Brazil'
+        us: 'United States'
   number:
     currency:
       format:
@@ -232,6 +236,8 @@ en:
     messages:
       welcome: 'Welcome to '
       last_sign: 'Your last access was '
+      menu: 'Navigate the system using the top menu.'
+      dont_forget_to_logout: 'Never forget to exit the system when you are no longer using it.'
     titles:
       edit: "Edit %{model}"
       save: "Create %{model}"
@@ -248,3 +254,4 @@ en:
       confirm: 'Are you sure you want to delete?'
     rescue: 'There was an error performing this action.'
     not_permited: 'This action is not permited.'
+    unsupported_locale: 'Unsupported locale.'

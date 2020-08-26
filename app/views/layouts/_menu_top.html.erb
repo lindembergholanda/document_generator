@@ -19,12 +19,16 @@
         <%= link_to Document.model_name.human, documents_path, class: 'nav-link' %>
       </li>
     </ul>
+    <div class="col-1">
+      <%= link_to content_tag(:i, nil, class:'flag-icon flag-icon-br flag-icon-squared'), set_locale_path(locale: 'pt-BR'), { method: :post, title: t('helpers.links.countries.br'), style: 'margin-right: 10px;'} %>
+      <%= link_to content_tag(:i, nil, class:'flag-icon flag-icon-us flag-icon-squared'), set_locale_path(locale: 'en'), { method: :post, title: t('helpers.links.countries.us') } %>
+    </div>
     <span class="navbar-text">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <%= "#{current_user.email}#{session[:tipo_user].blank? ? '' : "(#{session[:tipo_user].upcase})"}" %><b class="caret"></b></a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to(' Sair', destroy_user_session_path, :method => :delete, :class => 'dropdown-item fa fa-user') %>
+            <%= link_to(" #{t('helpers.links.logout')}", destroy_user_session_path, method: :delete, class: 'dropdown-item fa fa-user') %>
           </div>
         </li>
       </ul>

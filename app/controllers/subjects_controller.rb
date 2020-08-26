@@ -4,9 +4,9 @@ class SubjectsController < ApplicationController
   before_action :resources, only: [:create, :new, :edit, :update]
 
   add_breadcrumb Subject.model_name.human, :subjects_path
-  add_breadcrumb I18n.t("breadcrumb.show"), :subject_path, only: [:show]
-  add_breadcrumb I18n.t("breadcrumb.new"), :new_subject_path, only: [:new, :create]
-  add_breadcrumb I18n.t("breadcrumb.edit"), :edit_subject_path, only: [:edit, :update]
+  add_breadcrumb I18n.t("breadcrumbs.show"), :subject_path, only: [:show]
+  add_breadcrumb I18n.t("breadcrumbs.new"), :new_subject_path, only: [:new, :create]
+  add_breadcrumb I18n.t("breadcrumbs.edit"), :edit_subject_path, only: [:edit, :update]
 
   respond_to :html
   def index
