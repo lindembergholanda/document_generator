@@ -4,9 +4,9 @@ class CompaniesController < ApplicationController
   before_action :resources, only: [:create, :new, :edit, :update]
 
   add_breadcrumb Company.model_name.human, :companies_path
-  add_breadcrumb I18n.t("breadcrumb.show"), :company_path, only: [:show]
-  add_breadcrumb I18n.t("breadcrumb.new"), :new_company_path, only: [:new, :create]
-  add_breadcrumb I18n.t("breadcrumb.edit"), :edit_company_path, only: [:edit, :update]
+  add_breadcrumb I18n.t("breadcrumbs.show"), :company_path, only: [:show]
+  add_breadcrumb I18n.t("breadcrumbs.new"), :new_company_path, only: [:new, :create]
+  add_breadcrumb I18n.t("breadcrumbs.edit"), :edit_company_path, only: [:edit, :update]
 
   respond_to :html
   

@@ -1,5 +1,6 @@
 pt-BR:
-  breadcrumb:
+  breadcrumbs:
+    home: 'Início'
     new: 'Novo'
     edit: 'Editar'
     show: 'Detalhar'

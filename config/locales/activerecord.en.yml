@@ -7,6 +7,7 @@ en:
       company_contact: 'Contact'
       document_type: 'Document Type'
       subject: 'Subject'
+      document: 'Document'
     attributes:
       user:
         email: E-mail

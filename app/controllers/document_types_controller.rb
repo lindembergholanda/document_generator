@@ -2,9 +2,9 @@
 class DocumentTypesController < ApplicationController
   before_action :set_document_type, only: [:show, :edit, :update, :destroy]
   add_breadcrumb DocumentType.model_name.human, :document_types_path
-  add_breadcrumb I18n.t("breadcrumb.show"), :document_type_path, only: [:show]
-  add_breadcrumb I18n.t("breadcrumb.new"), :new_document_type_path, only: [:new, :create]
-  add_breadcrumb I18n.t("breadcrumb.edit"), :edit_document_type_path, only: [:edit, :update]
+  add_breadcrumb I18n.t("breadcrumbs.show"), :document_type_path, only: [:show]
+  add_breadcrumb I18n.t("breadcrumbs.new"), :new_document_type_path, only: [:new, :create]
+  add_breadcrumb I18n.t("breadcrumbs.edit"), :edit_document_type_path, only: [:edit, :update]
 
   respond_to :html
   def index

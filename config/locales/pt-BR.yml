@@ -168,6 +168,10 @@ pt-BR:
       complete: Concluir
       yess: Sim
       noo: Não
+      logout: 'Sair'
+      countries:
+        br: 'Brasil'
+        us: 'Estados Unidos'
   number:
     currency:
       format:
@@ -242,6 +246,8 @@ pt-BR:
     messages:
       welcome: 'Bem-vindo ao '
       last_sign: 'Seu último acesso foi em '
+      menu: 'Navegue no sistema utilizando o menu superior.'
+      dont_forget_to_logout: 'Nunca esqueça de sair do sistema quando não estiver mais utilizando.'
     titles:
       edit: "Editar %{model}"
       save: "Salvar %{model}"
@@ -258,4 +264,5 @@ pt-BR:
       confirm: 'Tem certeza que deseja excluir?'
     rescue: 'Ocorreu um erro ao realizar esta ação.'
     not_permited: 'Ação não permitida.'
+    unsupported_locale: 'Localidade não suportada.'
       

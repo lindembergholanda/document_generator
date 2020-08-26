@@ -5,9 +5,9 @@ class DocumentsController < ApplicationController
   before_action :valid_edit, only: [:edit]
 
   add_breadcrumb Document.model_name.human, :documents_path
-  add_breadcrumb I18n.t("breadcrumb.show"), :document_path, only: [:show]
-  add_breadcrumb I18n.t("breadcrumb.new"), :new_document_path, only: [:new, :create]
-  add_breadcrumb I18n.t("breadcrumb.edit"), :edit_document_path, only: [:edit, :update]
+  add_breadcrumb I18n.t("breadcrumbs.show"), :document_path, only: [:show]
+  add_breadcrumb I18n.t("breadcrumbs.new"), :new_document_path, only: [:new, :create]
+  add_breadcrumb I18n.t("breadcrumbs.edit"), :edit_document_path, only: [:edit, :update]
 
   respond_to :html
   def index

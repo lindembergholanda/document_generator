@@ -31,6 +31,7 @@ gem 'nested_form'
 gem 'breadcrumbs_on_rails' # Paths
 gem 'aasm'
 gem 'rqrcode', '~> 0.10.1'
+gem 'flag-icons-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
