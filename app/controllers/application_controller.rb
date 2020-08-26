@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
                     raise I18n.t('messages.unsupported_locale') unless ['pt-BR', 'en'].include?(params[:locale]) 
                     session[:locale] = params[:locale] 
                end
-               I18n.locale = session[:locale] 
+               I18n.locale = session[:locale] || I18n.default_locale
           rescue => e
                flash[:warning] = e.message
           end
